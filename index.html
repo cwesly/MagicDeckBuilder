@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Magic Cards</title>
-</head>
-<body>
-	<script type="text/javascript">
-		
-	</script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Magic Cards</title>
+  </head>
+  <body>
+    <h1>MAGIC CARDS DECK</h1>
+    <script type="text/javascript">
+      let cards = [];
+      let card = null;
+
+      class MagicCart {
+        constructor(nome, cor) {
+          this.name = nome;
+          this.color = cor;
+        }
+      }
+      class SuperMagicCart extends MagicCart {
+        constructor(nome, cor, custoMana) {
+          super(nome, cor);
+          this.cmc = custoMana;
+        }
+      }
+    </script>
+  </body>
 </html>
