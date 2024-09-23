@@ -1,0 +1,22 @@
+Classe: Cartas
+Atributos:
+- nome da carta
+- custo de mana carta - converted mana cost (CMC) (superclasse? terrenos nao tem CMC)
+- cor da carta
+----- EXEMPLOS -----
+Nome: Mana tithe
+CMC: 1
+Cor: Branca
+Qtde no deck: 1~4
+--------------------
+Nome: Planicie (terreno)
+CMC: x
+Cor: Branca
+Qtde no deck: 17
+-------------------
+Menu - Magic the Gathering Deck Builder:
+1 - Crie seu deck (Create) - function create
+2 - Visualize seu deck (Read) - function list
+3 - Edite seu deck (Update) - function edit, function search
+4 - Delete seu deck (Delete) - function delete
+5 - Sair
