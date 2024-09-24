@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		// variavel global
+	let opcao
+	let deck = []
+	let card = null
+// funcoes do sistema
+	function createDeck(){
+     	class MagicCard{
+      		constructor(nome, cor){
+          		this.name = nome;
+          		this.color = cor;
+        	}
+    	}
+    	class SuperMagicCart extends MagicCart {
+    		constructor(nome, cor, custoMana) {
+        		super(nome, cor);
+        		this.cmc = custoMana;
+    		}
+    	}
+	}
+
+	function listDeck(){
+		console.log(deck)
+	}
+
+	function editDeck(){
+		let existingCard = true
+		let subCard = prompt("Qual carta deseja substituir?")
+		existingCard = searchDeck(subCard)
+		if (existingCard = true) {
+			let newCard =
+
+		}
+	}
+
+	function searchDeck(){
+		for (var i = 0; i < deck.length; i++) {
+			if(deck[i].nome === subCard)
+				return true
+			return false
+		}
+
+	}
+
+	function deleteDeck(){
+		
+	}
+
+// funcao principal
+		do {
+			console.log("-----  Menu ------")
+			console.log("1 - Crie seu Deck")
+			console.log("2 - Visualize seu Deck")
+			console.log("3 - Edite seu Deck")
+			console.log("4 - Delete seu Deck")
+			console.log("5 - Sair")
+			opcao = prompt("Digite a opção referente ao que deseja fazer: ")
+
+			switch(opcao){
+				case "1":{
+					createDeck()
+					break
+				}
+				case "2":{
+					listDeck()
+					break
+				}	
+				case "3":{
+					editDeck()
+					break
+				}	
+				case "4":{
+					deleteDeck()
+					break
+				}	
+			}
+
+		} while(opcao != 5)
+		console.log("Sistema encerrado.")
+
+	</script>
+</body>
+</html>
