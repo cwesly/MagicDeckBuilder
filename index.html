@@ -10,6 +10,10 @@
     <script type="text/javascript">
       let cards = [];
       let card = null;
+      let posicaoCards = 0;
+      let nome = "";
+      let cor = "";
+      let custoMana = "";
 
       class MagicCart {
         constructor(nome, cor) {
@@ -23,6 +27,35 @@
           this.cmc = custoMana;
         }
       }
+
+      const CreateCart = () => {
+        let isOver = 1;
+
+        do {
+          let isSuper = parseInt(
+            prompt("Escreva 1 para carta de terreno e 2 para outro tipo:")
+          );
+
+          if (isSuper === 1) {
+            nome = "terreno";
+            cor = prompt("Digite a cor da carta:");
+            card = new MagicCart(nome, cor);
+            cards.push(card);
+            console.log("Carta criada!");
+          } else if (isSuper === 2) {
+            nome = prompt("Digite o nome da carta:");
+            cor = prompt("Digite a cor da carta:");
+            custoMana = prompt("Digite o custo de mana da carta:");
+            card = new SuperMagicCart(nome, cor, custoMana);
+            cards.push(card);
+            console.log("Carta criada!");
+          } else {
+            console.log("Erro... dígito inválido");
+          }
+
+          isOver = parseInt(prompt("Deseja criar outra carta? 1-sim / 2-não"));
+        } while (isOver !== 2);
+      };
     </script>
   </body>
 </html>
