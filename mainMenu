@@ -44,15 +44,17 @@
 
 	function searchDeck(){
 		for (var i = 0; i < deck.length; i++) {
-			if(deck[i].nome === subCard)
+			if(deck[i].nome === subCard){
+				deck[i] = null
 				return true
+			}
 			return false
 		}
 
 	}
-
 	function deleteDeck(){
-		
+		deck = []
+		console.log(deck)
 	}
 
 // funcao principal
