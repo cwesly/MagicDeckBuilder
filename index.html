@@ -40,14 +40,14 @@
             nome = "terreno";
             cor = prompt("Digite a cor da carta:");
             card = new MagicCart(nome, cor);
-            deck.push(card);
+            addToDeck(card);
             console.log("Carta criada!");
           } else if (isSuper === 2) {
             nome = prompt("Digite o nome da carta:");
             cor = prompt("Digite a cor da carta:");
             custoMana = prompt("Digite o custo de mana da carta:");
             card = new SuperMagicCart(nome, cor, custoMana);
-            deck.push(card);
+            addToDeck(card);
             console.log("Carta criada!");
           } else {
             console.log("Erro... dígito inválido");
@@ -57,12 +57,21 @@
         } while (isOver !== 2);
       }
 
+      function addToDeck(card) {
+        let newDeck = [];
+        for (let i = 0; i < deck.length; i++) {
+          newDeck[i] = deck[i];
+        }
+        newDeck[deck.length] = card;
+        deck = newDeck;
+      }
+
       function ListDeck() {
         const nomesCartas = [];
         for (let i = 0; i < deck.length; i++) {
-          nomesCartas[i]=deck[i].name
+          nomesCartas[i] = deck[i].name;
         }
-      console.log("Lista do deck: " + nomesCartas)
+        console.log("Lista do deck: " + nomesCartas);
       }
 
       function EditDeck() {
@@ -109,12 +118,12 @@
       }
 
       do {
-        console.log("-----  Menu ------")
-        console.log("1 - Crie seu Deck")
-        console.log("2 - Visualize seu Deck")
-        console.log("3 - Edite seu Deck")
-        console.log("4 - Delete seu Deck")
-        console.log("5 - Sair")
+        console.log("-----  Menu ------");
+        console.log("1 - Crie seu Deck");
+        console.log("2 - Visualize seu Deck");
+        console.log("3 - Edite seu Deck");
+        console.log("4 - Delete seu Deck");
+        console.log("5 - Sair");
         opcao = prompt(
           "-----  Menu ------\n1 - Crie seu Deck\n2 - Visualize seu Deck\n3 - Edite seu Deck\n4 - Delete seu Deck\n5 - Sair\nDigite a opção referente ao que deseja fazer: "
         );
