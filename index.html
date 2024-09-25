@@ -8,7 +8,8 @@
   <body>
     <h1>MAGIC CARDS DECK</h1>
     <script type="text/javascript">
-      let cards = [];
+      let opcao;
+      let deck = [];
       let card = null;
       let posicaoCards = 0;
       let nome = "";
@@ -21,6 +22,7 @@
           this.color = cor;
         }
       }
+
       class SuperMagicCart extends MagicCart {
         constructor(nome, cor, custoMana) {
           super(nome, cor);
@@ -28,34 +30,109 @@
         }
       }
 
-      const CreateCart = () => {
+      function CreateDeck() {
         let isOver = 1;
-
         do {
           let isSuper = parseInt(
             prompt("Escreva 1 para carta de terreno e 2 para outro tipo:")
           );
-
           if (isSuper === 1) {
             nome = "terreno";
             cor = prompt("Digite a cor da carta:");
             card = new MagicCart(nome, cor);
-            cards.push(card);
+            deck.push(card);
             console.log("Carta criada!");
           } else if (isSuper === 2) {
             nome = prompt("Digite o nome da carta:");
             cor = prompt("Digite a cor da carta:");
             custoMana = prompt("Digite o custo de mana da carta:");
             card = new SuperMagicCart(nome, cor, custoMana);
-            cards.push(card);
+            deck.push(card);
             console.log("Carta criada!");
           } else {
             console.log("Erro... dígito inválido");
           }
 
-          isOver = parseInt(prompt("Deseja criar outra carta? 1-sim / 2-não"));
+          isOver = parseInt(prompt("Deseja criar uma carta? 1-sim / 2-não"));
         } while (isOver !== 2);
-      };
+      }
+
+      function ListDeck() {
+        console.log(deck);
+      }
+
+      function EditDeck() {
+        ListDeck();
+        let subCard = prompt("Qual carta deseja substituir?");
+        let cardIndex = SearchDeck(subCard);
+        if (cardIndex !== -1) {
+          let isSuper = parseInt(
+            prompt("Escreva 1 para carta de terreno e 2 para outro tipo:")
+          );
+          if (isSuper === 1) {
+            nome = "terreno";
+            cor = prompt("Digite a cor da carta:");
+            card = new MagicCart(nome, cor);
+          } else if (isSuper === 2) {
+            nome = prompt("Digite o nome da carta:");
+            cor = prompt("Digite a cor da carta:");
+            custoMana = prompt("Digite o custo de mana da carta:");
+            card = new SuperMagicCart(nome, cor, custoMana);
+          } else {
+            console.log("Erro... dígito inválido");
+            return;
+          }
+          deck[cardIndex] = card;
+          console.log("Carta substituída com sucesso!");
+        } else {
+          console.log("Carta não encontrada.");
+        }
+      }
+
+      function SearchDeck() {
+        for (let i = 0; i < deck.length; i++) {
+          if (deck[i].name === subCard) {
+            return i;
+          }
+        }
+        return -1;
+      }
+
+      function DeleteDeck() {
+        deck = [];
+        console.log("Deck excluído com sucesso.");
+        console.log(deck);
+      }
+
+      do {
+        console.log("-----  Menu ------");
+        console.log("1 - Crie seu Deck");
+        console.log("2 - Visualize seu Deck");
+        console.log("3 - Edite seu Deck");
+        console.log("4 - Delete seu Deck");
+        console.log("5 - Sair");
+        opcao = prompt("Digite a opção referente ao que deseja fazer: ");
+
+        switch (opcao) {
+          case "1": {
+            CreateDeck();
+            break;
+          }
+          case "2": {
+            ListDeck();
+            break;
+          }
+          case "3": {
+            EditDeck();
+            break;
+          }
+          case "4": {
+            DeleteDeck();
+            break;
+          }
+        }
+      } while (opcao != 5);
+      console.log("Sistema encerrado.");
     </script>
   </body>
 </html>
