@@ -58,7 +58,11 @@
       }
 
       function ListDeck() {
-        console.log(deck);
+        const nomesCartas = [];
+        for (let i = 0; i < deck.length; i++) {
+          nomesCartas[i]=deck[i].name
+        }
+      console.log("Lista do deck: " + nomesCartas)
       }
 
       function EditDeck() {
@@ -89,7 +93,7 @@
         }
       }
 
-      function SearchDeck() {
+      function SearchDeck(subCard) {
         for (let i = 0; i < deck.length; i++) {
           if (deck[i].name === subCard) {
             return i;
@@ -105,6 +109,12 @@
       }
 
       do {
+        console.log("-----  Menu ------")
+        console.log("1 - Crie seu Deck")
+        console.log("2 - Visualize seu Deck")
+        console.log("3 - Edite seu Deck")
+        console.log("4 - Delete seu Deck")
+        console.log("5 - Sair")
         opcao = prompt(
           "-----  Menu ------\n1 - Crie seu Deck\n2 - Visualize seu Deck\n3 - Edite seu Deck\n4 - Delete seu Deck\n5 - Sair\nDigite a opção referente ao que deseja fazer: "
         );
